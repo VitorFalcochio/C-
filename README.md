@@ -29,7 +29,7 @@ Caso queira testar na sua máquina, você precisará ter o [.NET SDK](https://do
 1. Clone este repositório:
    ```bash
    git clone [https://github.com/VitorFalcochio/C-.git](https://github.com/VitorFalcochio/C-.git)
-````
+   
 
 2.  Entre na pasta do projeto.
 3.  Execute o comando no terminal:
@@ -47,16 +47,4 @@ No momento, estou focado em transformar o Controle de Despesas em um sistema **C
   - [ ] Criar um Menu Interativo de navegação
   - [ ] Atualizar e deletar gastos (Update e Delete)
 
------
-
 *Desenvolvido com dedicação por [Vitor Falcochio](https://www.google.com/search?q=https://github.com/VitorFalcochio)* 💡
-
-```
-
-### Como adicionar isso ao seu repositório:
-Você tem dois caminhos super fáceis agora:
-1. **Pelo site do GitHub:** Acesse a página do seu repositório, clique no botão verde escrito **"Add a README"** que aparece bem no meio da tela, cole esse texto lá e clique em "Commit changes".
-2. **Pelo VS Code:** Crie um arquivo chamado `README.md` na mesma pasta do seu código, cole esse texto, salve e rode os comandos do Git que aprendemos (`git add .`, depois `git commit -m "Adiciona README"`, e por fim `git push`).
-
-Me avisa quando o README estiver brilhando lá no seu GitHub! Quer que, logo em seguida, a gente mate aquele terceiro item da lista de próximos passos e faça o código **ler** o arquivo e somar seus gastos?
-```
