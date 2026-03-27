@@ -9,40 +9,54 @@ Console.WriteLine("Vamos registrar a despesa do seu almoço!"); // O 'Console.Wr
 Console.Write("Digite o seu nome: ");
 string nome = Console.ReadLine()!; // O 'Console.ReadLine()' é um método que lê o que o usuário digitou e retorna como uma string, ou seja, um texto. O '!' é para avisar que o valor não vai ser nulo, ou seja, que o usuário vai digitar algo.
 
-
-Console.Write($"{nome}, por favor digite seu Almoço: "); // O '!' é para avisar que o valor não vai ser nulo, ou seja, que o usuário vai digitar algo
-string almoco = Console.ReadLine()!; // O 'Console.ReadLine()' é um método que lê o que o usuário digitou e retorna como uma string, ou seja, um texto. O 'decimal.Parse()' é um método que converte uma string em um número decimal, ou seja, um número com vírgula.
-
-Console.Write($"{nome}, por favor digite o valor do seu Almoço: "); // O 'Console.Write()' é um método que escreve algo na tela, mas não pula para a linha de baixo, ou seja, o cursor fica na mesma linha. O 'decimal.Parse()' é um método que converte uma string em um número decimal, ou seja, um número com vírgula.
-decimal valor = decimal.Parse(Console.ReadLine()!);  // O 'decimal.Parse()' é um método que converte uma string em um número decimal, ou seja, um número com vírgula. O 'Console.ReadLine()' é um método que lê o que o usuário digitou e retorna como uma string, ou seja, um texto. O '!' é para avisar que o valor não vai ser nulo, ou seja, que o usuário vai digitar algo.
-
-// 2. Preenchendo os dados
-meuAlmoco.Descricao = almoco; // Coloquei a descrição entre chaves para ficar mais fácil de ler
-meuAlmoco.Valor = valor;   // Colocamos a letra 'm' no final para avisar que é um 'decimal'
-meuAlmoco.Data = DateTime.Now;    // O C# pega a data e hora exata de agora automaticamente!
-
-
-// 3. Mostrando na tela
-
-Console.WriteLine($"SALVO! {nome} gastou R$ {meuAlmoco.Valor} com {meuAlmoco.Descricao} em {meuAlmoco.Data}");
-
-Console.Write("Deseja Salvar essa despesa? (S/N) ");
-string resposta = Console.ReadLine()!.ToUpper(); // O 'Console.ReadLine()' é um método que lê o que o usuário digitou e retorna como uma string, ou seja, um texto. O 'ToUpper()' é um método que converte todas as letras de uma string para maiúsculas, ou seja, para letras grandes. O '!' é para avisar que o valor não vai ser nulo, ou seja, que o usuário vai digitar algo.  
-
-if (resposta == "S")
+while (true)
 {
 
-    // Salvar a despesa no banco de dados despesas.txt
-    // ...
-    
-    File.AppendAllText("despesas.txt", $" {nome} gastou R$ {meuAlmoco.Valor} com {meuAlmoco.Descricao} em {meuAlmoco.Data}\n"); // O 'File.AppendAllText()' é um método que escreve um texto em um arquivo, e se o arquivo já existir, ele adiciona o texto no final do arquivo, ou seja, ele não apaga o que já tem no arquivo. O '\n' é para pular para a linha de baixo, ou seja, para cada despesa ficar em uma linha diferente.
-    Console.WriteLine("Despesa salva no arquivo com sucesso!");
-}
-else
-{
-    Console.WriteLine("Despesa não salva.");
-}
+    Console.Write($"{nome}, por favor digite seu Almoço: "); // O '!' é para avisar que o valor não vai ser nulo, ou seja, que o usuário vai digitar algo
+    string almoco = Console.ReadLine()!; // O 'Console.ReadLine()' é um método que lê o que o usuário digitou e retorna como uma string, ou seja, um texto. O 'decimal.Parse()' é um método que converte uma string em um número decimal, ou seja, um número com vírgula.
 
+    Console.Write($"{nome}, por favor digite o valor do seu Almoço: "); // O 'Console.Write()' é um método que escreve algo na tela, mas não pula para a linha de baixo, ou seja, o cursor fica na mesma linha. O 'decimal.Parse()' é um método que converte uma string em um número decimal, ou seja, um número com vírgula.
+    decimal valor = decimal.Parse(Console.ReadLine()!);  // O 'decimal.Parse()' é um método que converte uma string em um número decimal, ou seja, um número com vírgula. O 'Console.ReadLine()' é um método que lê o que o usuário digitou e retorna como uma string, ou seja, um texto. O '!' é para avisar que o valor não vai ser nulo, ou seja, que o usuário vai digitar algo.
+
+    // 2. Preenchendo os dados
+    meuAlmoco.Descricao = almoco; // Coloquei a descrição entre chaves para ficar mais fácil de ler
+    meuAlmoco.Valor = valor;   // Colocamos a letra 'm' no final para avisar que é um 'decimal'
+    meuAlmoco.Data = DateTime.Now;    // O C# pega a data e hora exata de agora automaticamente!
+
+
+    // 3. Mostrando na tela
+
+    Console.WriteLine($"SALVO! {nome} gastou R$ {meuAlmoco.Valor} com {meuAlmoco.Descricao} em {meuAlmoco.Data}");
+
+    Console.Write("Deseja Salvar essa despesa? (S/N) ");
+    string resposta = Console.ReadLine()!.ToUpper(); // O 'Console.ReadLine()' é um método que lê o que o usuário digitou e retorna como uma string, ou seja, um texto. O 'ToUpper()' é um método que converte todas as letras de uma string para maiúsculas, ou seja, para letras grandes. O '!' é para avisar que o valor não vai ser nulo, ou seja, que o usuário vai digitar algo.  
+
+    if (resposta == "S")
+    {
+
+        // Salvar a despesa no banco de dados despesas.txt
+        // ...
+
+        File.AppendAllText("despesas.txt", $" [ {nome} ] gastou [ R$ {meuAlmoco.Valor} ]  com [ {meuAlmoco.Descricao} ] em [ {meuAlmoco.Data} ] \n"); // O 'File.AppendAllText()' é um método que escreve um texto em um arquivo, e se o arquivo já existir, ele adiciona o texto no final do arquivo, ou seja, ele não apaga o que já tem no arquivo. O '\n' é para pular para a linha de baixo, ou seja, para cada despesa ficar em uma linha diferente.
+        Console.WriteLine("Despesa salva no arquivo com sucesso!");
+    }
+    else
+    {
+        Console.WriteLine("Despesa não salva.");
+    }
+
+    // 3. A PERGUNTA CHAVE DO LOOP
+    Console.Write("\nDeseja registrar outra despesa agora? (S/N): ");
+    string continuar = Console.ReadLine()!.ToUpper();
+
+    // Se ele digitar qualquer coisa diferente de "S", o 'break' quebra o loop e o programa acaba!
+    if (continuar != "S")
+    {
+        Console.WriteLine($"Fechando o sistema... Até mais, {nome}!");
+        break;
+    }
+
+}
 // ==========================================
 
 // 2. AS CLASSES (MOLDES) FICAM LÁ NO FINAL
