@@ -9,6 +9,7 @@ Console.WriteLine("Vamos registrar a despesa do seu almoço!"); // O 'Console.Wr
 Console.Write("Digite o seu nome: ");
 string nome = Console.ReadLine()!; // O 'Console.ReadLine()' é um método que lê o que o usuário digitou e retorna como uma string, ou seja, um texto. O '!' é para avisar que o valor não vai ser nulo, ou seja, que o usuário vai digitar algo.
 
+// 1. O LOOP FICA AQUI EM CIMA, PARA REPETIR TODO O PROCESSO DE REGISTRAR DESPESAS
 while (true)
 {
 
