@@ -46,5 +46,6 @@ No momento, estou focado em transformar o Controle de Despesas em um sistema **C
   - [ ] Ler o arquivo e somar os gastos totais (Read)
   - [ ] Criar um Menu Interativo de navegação
   - [ ] Atualizar e deletar gastos (Update e Delete)
-
+```bash
 *Desenvolvido com dedicação por [Vitor Falcochio](https://www.google.com/search?q=https://github.com/VitorFalcochio)* 💡
+  ```
